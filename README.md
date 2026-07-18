@@ -28,7 +28,7 @@
 
 <h3><code>digvijay@github ~ $ ./links.sh</code></h3>
 
-<p><b>Software Developer · AI Enthusiast</b></p>
+<p><b>AI Consultant @ Practus · 10+ Projects Deployed</b></p>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-digvijay--mahesh--chaudhari-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/digvijay-mahesh-chaudhari-64b88325a/)
 
