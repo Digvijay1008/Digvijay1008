@@ -1,0 +1,38 @@
+name: Automated Daily Commit
+
+on:
+  schedule:
+    # Runs at 10:00 UTC (around 3:30 PM IST) every single day
+    - cron: '0 10 * * *'
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Make a daily update
+        run: |
+          mkdir -p data
+          echo "Automated commit for $(date)" >> data/activity.log
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "digvijaychaudhari2004@gmail.com"
+          git config --local user.name "Digvijay1008"
+          
+          # Only commit if there are changes
+          if [[ -n $(git status -s) ]]; then
+            git add data/activity.log
+            git commit -m "Automated daily activity update [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
